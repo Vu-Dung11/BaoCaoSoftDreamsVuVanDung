@@ -1,0 +1,57 @@
+/* Navbar chính */
+.navbar-ecom {
+  background-color: #ffffff; /* nền trắng */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* đổ bóng nhẹ */
+  padding: 0.5rem 1rem;
+}
+
+.navbar-ecom .navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #007bff;
+}
+
+.navbar-ecom .logo {
+  height: 40px;
+  margin-right: 8px;
+}
+
+.navbar-ecom .nav-link {
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar-ecom .nav-link:hover,
+.navbar-ecom .nav-link.active {
+  color: #007bff;
+}
+
+.navbar-ecom .dropdown-menu {
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.navbar-ecom .btn-outline-primary {
+  color: #007bff;
+  border-color: #007bff;
+}
+
+.navbar-ecom .btn-outline-primary:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.navbar-ecom .btn-outline-secondary {
+  color: #555;
+  border-color: #555;
+}
+
+.navbar-ecom .btn-outline-secondary:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+.navbar-ecom .badge {
+  font-size: 0.75rem;
+}

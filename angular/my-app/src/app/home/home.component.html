@@ -1,0 +1,227 @@
+<app-header></app-header>
+<style>
+
+  .intro-section {
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+  }
+
+  .search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-bottom: 20px;
+  }
+
+  .search-input {
+    width: 300px;
+
+    color: white;
+  }
+
+  .form-control {
+    background-color: transparent;
+  }
+
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+  }
+
+  /* Internet Explorer 10-11 */
+  form-control:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* Microsoft Edge */
+  form-control::-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+
+  .product-categories {
+    width: 200px;
+  }
+
+
+  .product-item {
+    background-color: #5a7be7;
+    ;
+    border: 1px solid rgb(150, 155, 184);
+    border-radius: 20px;
+    padding: 15px;
+    margin-bottom: 20px;
+    height: auto;
+    width: 100%;
+  }
+
+  .product-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+
+
+  }
+
+  .product-price {
+    color: white;
+  }
+
+  .product-rating {
+    color: #ffd700;
+  }
+
+  .product-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .space {
+    margin: 0 5px;
+  }
+</style>
+
+<div class="container">
+
+  <div class="intro-section">
+    <h1>Welcome to the Page!</h1>
+    <p>This is the home component of the application.</p>
+  </div>
+
+  <div class="search-box">
+    <input type="text" class="form-control search-input" placeholder="Search..." />
+    <select class="form-control product-categories">
+      <option selected disabled>Danh Mục Sản Phẩm</option>
+      <option>Đồ dùng cá nhân</option>
+      <option>Đồ điện tử</option>
+      <option>Đồ gia dụng</option>
+    </select>
+    <button class="btn btn-primary">Search</button>
+  </div>
+  <div class="row">
+    <div class="col-lg-4 col-md-6">
+      <div class="product-item">
+        <img
+          src="https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/2024_1_25_638418152402743426_cach-su-dung-macbook-0.jpg"
+          alt="Product 1" class="product-image" />
+        <h3 class="product-title">Product 1</h3>
+        <p class="product-description">Description of Product 1</p>
+        <p class="product-warranty">Bảo Hành: 12 tháng</p>
+        <p class="product-price">Giá: <del>$200</del> $100</p>
+        <div class="product-rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+        <div class="product-actions">
+          <button class="btn btn-primary">Thêm vào giỏ hàng</button>
+          <span class="space -x"></span>
+          <button class="btn btn-success">Buy Now</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+      <div class="product-item">
+        <img
+          src="https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/2024_1_25_638418152402743426_cach-su-dung-macbook-0.jpg"
+          alt="Product 1" class="product-image" />
+        <h3 class="product-title">Product 1</h3>
+        <p class="product-description">Description of Product 1</p>
+        <p class="product-warranty">Bảo Hành: 12 tháng</p>
+        <p class="product-price">Giá: <del>$200</del> $100</p>
+        <div class="product-rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+        <div class="product-actions">
+          <button class="btn btn-primary">Thêm vào giỏ hàng</button>
+          <span class="space -x"></span>
+          <button class="btn btn-success">Buy Now</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+      <div class="product-item">
+        <img
+          src="https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/2024_1_25_638418152402743426_cach-su-dung-macbook-0.jpg"
+          alt="Product 1" class="product-image" />
+        <h3 class="product-title">Product 1</h3>
+        <p class="product-description">Description of Product 1</p>
+        <p class="product-warranty">Bảo Hành: 12 tháng</p>
+        <p class="product-price">Giá: <del>$200</del> $100</p>
+        <div class="product-rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+        <div class="product-actions">
+          <button class="btn btn-primary">Thêm vào giỏ hàng</button>
+          <span class="space -x"></span>
+          <button class="btn btn-success">Buy Now</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+      <div class="product-item">
+        <img
+          src="https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/2024_1_25_638418152402743426_cach-su-dung-macbook-0.jpg"
+          alt="Product 1" class="product-image" />
+        <h3 class="product-title">Product 1</h3>
+        <p class="product-description">Description of Product 1</p>
+        <p class="product-warranty">Bảo Hành: 12 tháng</p>
+        <p class="product-price">Giá: <del>$200</del> $100</p>
+        <div class="product-rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+        <div class="product-actions">
+          <button class="btn btn-primary">Thêm vào giỏ hàng</button>
+          <span class="space -x"></span>
+          <button class="btn btn-success">Buy Now</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+      <div class="product-item">
+        <img
+          src="https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/2024_1_25_638418152402743426_cach-su-dung-macbook-0.jpg"
+          alt="Product 1" class="product-image" />
+        <h3 class="product-title">Product 1</h3>
+        <p class="product-description">Description of Product 1</p>
+        <p class="product-warranty">Bảo Hành: 12 tháng</p>
+        <p class="product-price">Giá: <del>$200</del> $100</p>
+        <div class="product-rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+        <div class="product-actions">
+          <button class="btn btn-primary">Thêm vào giỏ hàng</button>
+          <span class="space -x"></span>
+          <button class="btn btn-success">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div>
+<app-footer></app-footer>
