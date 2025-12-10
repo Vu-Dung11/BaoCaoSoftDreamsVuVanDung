@@ -29,7 +29,7 @@ public class KetQuaHocTap {
     @Column(name = "diem_thanh_phan")
     private Double diem_thanh_phan;
 
-    @Column(name = "created_at", nullable = false, updatable = false)
+    @Column(name = "created_at", nullable = true, updatable = false)
     @CreationTimestamp
     private LocalDateTime createdAt;
 

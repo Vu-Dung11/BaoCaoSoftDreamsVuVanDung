@@ -19,7 +19,6 @@ import java.util.List;
 @CrossOrigin("*")
 public class MonHocController {
 
-
     private MonHocService monHocService;
 
     @PostMapping

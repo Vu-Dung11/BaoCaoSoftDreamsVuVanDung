@@ -1,0 +1,39 @@
+<style>
+  .container {
+    max-width: 500px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  .btn{
+    margin-top: 10px;
+  }
+</style>
+
+<div class="container mt-3">
+  <h2>Đăng Ký</h2>
+  <form action="/action_page.php">
+     <div class="mb-3 mt-3">
+      <label for="firtname">First Name:</label>
+      <input type="firtname" [(ngModel)]="firstname" class="form-control" id="firtname" placeholder="Enter firtname" name="firtname">
+    </div>
+     <div class="mb-3 mt-3">
+      <label for="lastname">Last Name:</label>
+      <input type="lastname" [(ngModel)]="lastname" class="form-control" id="lastname" placeholder="Enter lastname" name="lastname">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="email">Email:</label>
+      <input type="email" [(ngModel)]="email" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div>
+    <div class="mb-3">
+      <label for="pwd">Password:</label>
+      <input type="password"[(ngModel)]="password"  class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+    </div>
+
+    <div>
+      <div>Đã có tài khoản?<a href="#" routerLink="/dang-nhap">Đăng nhập</a></div>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="onRegister()">Register</button>
+  </form>
+</div>

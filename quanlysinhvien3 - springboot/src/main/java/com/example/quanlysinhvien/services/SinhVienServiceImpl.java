@@ -1,5 +1,6 @@
 package com.example.quanlysinhvien.services;
 
+import com.example.quanlysinhvien.dto.SinhVienBasicDTO;
 import com.example.quanlysinhvien.dto.SinhVienDTO;
 import com.example.quanlysinhvien.entity.KetQuaHocTap;
 import com.example.quanlysinhvien.entity.SinhVien;
@@ -74,14 +75,16 @@ public class SinhVienServiceImpl implements SinhVienService {
     }
 
     @Override
-    public List<String> getAllSinhVienName() {
+    public List<SinhVienBasicDTO> getAllSinhVienName() {
         var listNameSV = sinhVienRepository.findAllTenSinhVien();
-        return listNameSV;
+        return listNameSV.stream().map(s -> modelMapper.map(s, SinhVienBasicDTO.class)).collect(Collectors.toList());
     }
 
-
-
-
+    @Override
+    public List<SinhVienDTO> searchSinhVienByTen(String ten_sv) {
+        var listSv = sinhVienRepository.searchSinhVienByTen(ten_sv);
+        return   listSv.stream().map(s -> modelMapper.map(s, SinhVienDTO.class)).collect(Collectors.toList());
+    }
 
 
 }

@@ -1,0 +1,35 @@
+<style>
+  .container {
+    max-width: 500px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  .btn{
+    margin-top: 10px;
+  }
+</style>
+
+<div class="container mt-3">
+  <h2>Đăng Nhập</h2>
+  <form action="/action_page.php">
+    <div class="mb-3 mt-3">
+      <label for="email">Email:</label>
+      <input type="email" [(ngModel)]="email" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div>
+    <div class="mb-3">
+      <label for="pwd">Password:</label>
+      <input type="password"[(ngModel)]="password"  class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+    </div>
+    <div class="form-check mb-3">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" name="remember"> Remember me
+      </label>
+    </div>
+    <div>
+      <div>Chưa có tài khoản?<a href="#" routerLink="/dang-ky">Tạo mới</a></div>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="onLogin()">Login</button>
+  </form>
+</div>

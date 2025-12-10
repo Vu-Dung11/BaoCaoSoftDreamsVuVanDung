@@ -25,7 +25,7 @@ public class MonHoc {
     private Double ty_le_diem_qua_trinh;
 
     @CreationTimestamp
-    @Column(name = "created_at", nullable = false, updatable = false)
+    @Column(name = "created_at", nullable = true, updatable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "update_at")

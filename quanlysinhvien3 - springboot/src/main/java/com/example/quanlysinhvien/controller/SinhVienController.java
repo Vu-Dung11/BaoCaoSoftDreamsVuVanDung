@@ -1,5 +1,6 @@
 package com.example.quanlysinhvien.controller;
 
+import com.example.quanlysinhvien.dto.SinhVienBasicDTO;
 import com.example.quanlysinhvien.dto.SinhVienDTO;
 import com.example.quanlysinhvien.form.SinhVienCreateForm;
 import com.example.quanlysinhvien.form.SinhVienUpdateForm;
@@ -49,7 +50,7 @@ public class SinhVienController {
     }
 
     @GetMapping("/tensv")
-    public ResponseEntity<List<String>> getAllSinhVienName() {
+    public ResponseEntity<List<SinhVienBasicDTO>> getAllSinhVienName() {
        var listName = sinhVienService.getAllSinhVienName();
        return ResponseEntity.ok(listName);
     }
@@ -67,6 +68,18 @@ public class SinhVienController {
     public ResponseEntity<List<String>> findMonHocDangKyByMaSV( @PathVariable Long id) {
         var listSV = sinhVienService.findMonHocDangKyByMaSV(id);
         return ResponseEntity.ok(listSV);
+    }
+
+// URL: http://localhost:8080/api/sinh-vien/tim-kiem?ten=An
+    @GetMapping("/timkiem")
+    public ResponseEntity<List<SinhVienDTO>> SearchByName(@RequestParam("ten") String ten) {
+        var listsv = sinhVienService.searchSinhVienByTen(ten);
+        return ResponseEntity.ok(listsv);
+
+
+
+
+
     }
 
 

@@ -1,0 +1,51 @@
+/* Banner tổng */
+.banner {
+  text-align: center;
+  border-radius: 20px;
+  padding: 60px 20px;
+}
+
+/* Chữ banner */
+.banner-title {
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.banner-subtitle {
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+/* Container nút */
+.container-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+/* Nút chính */
+.start-btn {
+  background: linear-gradient(135deg, #0069d9, #0053b3);
+  border: none;
+  border-radius: 18px;
+  padding: 20px 80px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+  width: 500px;
+}
+
+/* Hiệu ứng hover */
+.start-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 25px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Hiệu ứng khi nhấn */
+.start-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+}

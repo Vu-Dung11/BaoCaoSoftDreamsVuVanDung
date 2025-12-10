@@ -1,7 +1,9 @@
 package com.example.quanlysinhvien.service;
 
+import com.example.quanlysinhvien.dto.SinhVienBasicDTO;
 import com.example.quanlysinhvien.dto.SinhVienDTO;
 import com.example.quanlysinhvien.entity.KetQuaHocTap;
+import com.example.quanlysinhvien.entity.SinhVien;
 import com.example.quanlysinhvien.form.SinhVienCreateForm;
 import com.example.quanlysinhvien.form.SinhVienUpdateForm;
 import org.springframework.data.repository.query.Param;
@@ -15,8 +17,8 @@ public interface SinhVienService {
     List<SinhVienDTO> getAllSinhVien();
     void deleteSinhVien(Long id);
     List<String> findMonHocDangKyByMaSV(Long masv);
-    List<String> getAllSinhVienName();
-
+    List<SinhVienBasicDTO> getAllSinhVienName();
+    List<SinhVienDTO> searchSinhVienByTen(String ten_sv);
 
 }
 

@@ -1,5 +1,6 @@
 package com.example.quanlysinhvien.repository;
 
+import com.example.quanlysinhvien.dto.SinhVienBasicDTO;
 import com.example.quanlysinhvien.entity.KetQuaHocTap;
 import com.example.quanlysinhvien.entity.SinhVien;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,8 +12,6 @@ import java.util.List;
 
 @Repository
 public interface SinhVienRepository extends JpaRepository<SinhVien, Long> {
-
-
     @Query(
             value = "SELECT m.ten_mon " +
                     "FROM mon_hoc m " +
@@ -22,12 +21,15 @@ public interface SinhVienRepository extends JpaRepository<SinhVien, Long> {
     )
     List<String> findMonHocDangKyByMaSV(@Param("ma_sv") Long masv);
 
+    @Query(value = "SELECT s.ma_sv, s.ten_sv " +
+            "FROM sinh_vien s", nativeQuery = true)
+    List<SinhVienBasicDTO> findAllTenSinhVien();
 
 
-    @Query("SELECT s.ten_sv " +
-            "FROM SinhVien s")
-    List<String> findAllTenSinhVien();
-
-
+    @Query(
+            value = "SELECT * FROM sinh_vien WHERE LOWER(ten_sv) LIKE LOWER(CONCAT('%', :ten, '%'))",
+            nativeQuery = true
+    )
+    List<SinhVien> searchSinhVienByTen(@Param("ten") String ten);
 }
 

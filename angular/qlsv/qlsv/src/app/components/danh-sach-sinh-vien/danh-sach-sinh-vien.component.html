@@ -1,0 +1,33 @@
+<div class="list-container">
+  <div class="search-box">
+    <h2>Danh sách Sinh viên</h2>
+    <div class="input">
+      <input type="text" class="search-input" placeholder="Tìm kiếm sinh viên..." [(ngModel)]="keyword"
+        (keyup.enter)="onSearch()" class="search-input" />
+      <button (click)="onSearch()" class="btn btn-primary">Search</button>
+    </div>
+  </div>
+
+
+  <table class="sv-table">
+    <thead>
+      <tr>
+        <th>Mã SV</th>
+        <th>Họ và Tên</th>
+        <th>Chức năng</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let sv of danhSachSV">
+        <td>{{ sv.ma_sv }}</td>
+        <td>{{ sv.ten_sv }}</td>
+        <td>
+          <a [routerLink]="['/sinh-vien', sv.ma_sv]" class="btn-detail">
+            Xem chi tiết
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

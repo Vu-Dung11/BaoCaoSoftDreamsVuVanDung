@@ -1,0 +1,49 @@
+<div class="detail-container">
+  <div *ngIf="!isLoading && !hasError && sinhVien" class="card">
+    <div class="card-header">
+      <h2>Hồ sơ sinh viên</h2>
+    </div>
+    <div class="card-body">
+      <div class="info-row">
+        <label>Mã SV:</label> <span>{{ sinhVien.ma_sv }}</span>
+      </div>
+      <div class="info-row">
+        <label>Họ tên:</label> <span>{{ sinhVien.ten_sv }}</span>
+      </div>
+      <div class="info-row">
+        <label>Giới tính:</label> <span>{{ sinhVien.gioi_tinh }}</span>
+      </div>
+      <div class="info-row">
+        <label>Ngày sinh:</label> <span>{{ sinhVien.ngay_sinh | date:'dd/MM/yyyy' }}</span>
+      </div>
+      <div class="info-row">
+        <label>Lớp:</label> <span>{{ sinhVien.lop }}</span>
+      </div>
+      <div class="info-row">
+        <label>Khoa:</label> <span>{{ sinhVien.khoa }}</span>
+      </div>
+    </div>
+    <app-ket-qua-hoc-tap [sinhVienId]="sinhVien.ma_sv"></app-ket-qua-hoc-tap>
+
+
+<hr style="margin: 30px 0; border: 0; border-top: 1px dashed #ccc;">
+
+<app-ket-qua-truot-do [sinhVienId]="sinhVien.ma_sv"></app-ket-qua-truot-do>
+
+    <div class="card-footer">
+      <a routerLink="/sinh-vien" class="btn-back" type="button">Quay lại</a>
+    </div>
+  </div>
+
+  <ng-template #loading>
+    <div *ngIf="isLoading" class="loading-container">
+      <p class="loading-text">Đang tải dữ liệu...</p>
+      <div class="spinner"></div>
+    </div>
+    <div *ngIf="hasError" class="error-container">
+      <h3>Lỗi tải dữ liệu</h3>
+      <p class="error-message">{{ errorMessage }}</p>
+      <button (click)="retryLoad()" class="btn-retry">Thử lại</button>
+    </div>
+  </ng-template>
+</div>

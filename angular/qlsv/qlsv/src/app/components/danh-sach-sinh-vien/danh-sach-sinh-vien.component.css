@@ -1,0 +1,55 @@
+.list-container {
+  max-width: 800px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+.sv-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.sv-table th,
+.sv-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.sv-table th {
+  background-color: #4caf50;
+  color: white;
+}
+
+.sv-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.btn-detail {
+  background-color: #008cba;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-detail:hover {
+  background-color: #007bb5;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.search-input {
+  width: 300px;
+  margin-right: 10px;
+}
+.input {
+  display: flex;
+}

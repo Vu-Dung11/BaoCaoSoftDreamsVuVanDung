@@ -1,0 +1,56 @@
+.custom-navbar {
+   background: linear-gradient(to right, #1e3c72, #2a5298, #4e8bd4);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05); /* Bóng mờ hiện đại */
+    padding: 15px 20px; /* Tăng khoảng cách cho thoáng */
+    /* display: flex;
+    align-items: center;
+    justify-content: space-between; */
+}
+
+.custom-navbar .navbar-brand {
+    color: #333 !important;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.custom-navbar .nav-item {
+    margin: 0 10px; /* Khoảng cách giữa các mục menu */
+}
+
+.custom-navbar .nav-link {
+
+    position: relative;
+    color: white;
+
+    font-weight: bold;
+}
+
+/* Hiệu ứng gạch chân khi hover */
+.custom-navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #007bff; /* Màu xanh dương */
+    bottom: 0;
+    color: white;
+
+    left: 0;
+    transition: width 0.3s;
+}
+
+.custom-navbar .nav-link:hover::after {
+    width: 100%; /* Kéo dài gạch chân */
+}
+
+/* Bo tròn ô tìm kiếm */
+.custom-navbar .form-control {
+    border-radius: 20px;
+    background-color: #f8f9fa;
+    border: none;
+}
+.btn{
+  color:white
+
+
+}
