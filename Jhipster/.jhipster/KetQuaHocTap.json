@@ -1,0 +1,46 @@
+{
+  "annotations": {
+    "changelogDate": "20251210070944"
+  },
+  "applications": ["QuanLySinhVien"],
+  "fields": [
+    {
+      "fieldName": "diemQuaTrinh",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "diemThanhPhan",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "KetQuaHocTap",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "tenSv",
+      "otherEntityName": "sinhVien",
+      "relationshipName": "sinhVien",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "tenMon",
+      "otherEntityName": "monHoc",
+      "relationshipName": "monHoc",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

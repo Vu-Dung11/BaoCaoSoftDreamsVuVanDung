@@ -1,0 +1,20 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "authenticationType": "jwt",
+    "baseName": "QuanLySinhVien",
+    "buildTool": "maven",
+    "clientFramework": "angular",
+    "entities": ["SinhVien", "MonHoc", "KetQuaHocTap"],
+    "jhipsterVersion": "8.11.0",
+    "jwtSecretKey": "MWQ3N2VhZWQ5NjhiYzJiMmJhMTFiMTJmMmI2ZjI4NzI3ZTIxOTZiYWUzNDdkNzAxNDMzMjEyMTFiYTY0MTVkNTVkMWRiNjFkZjY2MTM3NDQwNjMxMDliOWY1ZjkxODhlNjg5ZDVlMjU0MmQ1NDg1MjkyMDVlOTUyODdkZTcwM2Q=",
+    "languages": ["vi"],
+    "lastLiquibaseTimestamp": 1765350584000,
+    "monorepository": true,
+    "nativeLanguage": "vi",
+    "packageName": "com.example.quanlysinhvien",
+    "prodDatabaseType": "mysql",
+    "serverPort": "8080",
+    "skipCommitHook": true
+  }
+}

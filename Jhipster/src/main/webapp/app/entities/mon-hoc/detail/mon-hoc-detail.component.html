@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (monHoc(); as monHocRef) {
+      <div>
+        <h2 data-cy="monHocDetailsHeading"><span jhiTranslate="quanLySinhVienApp.monHoc.detail.title">Mon Hoc</span></h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ monHocRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="quanLySinhVienApp.monHoc.tenMon">Ten Mon</span></dt>
+          <dd>
+            <span>{{ monHocRef.tenMon }}</span>
+          </dd>
+          <dt><span jhiTranslate="quanLySinhVienApp.monHoc.tyLeDiemQuaTrinh">Ty Le Diem Qua Trinh</span></dt>
+          <dd>
+            <span>{{ monHocRef.tyLeDiemQuaTrinh }}</span>
+          </dd>
+          <dt><span jhiTranslate="quanLySinhVienApp.monHoc.createdAt">Created At</span></dt>
+          <dd>
+            <span>{{ monHocRef.createdAt | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="quanLySinhVienApp.monHoc.updatedAt">Updated At</span></dt>
+          <dd>
+            <span>{{ monHocRef.updatedAt | formatMediumDatetime }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Quay lại</span>
+        </button>
+
+        <button type="button" [routerLink]="['/mon-hoc', monHocRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Sửa</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

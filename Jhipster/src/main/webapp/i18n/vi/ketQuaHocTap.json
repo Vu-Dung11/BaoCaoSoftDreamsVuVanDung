@@ -1,0 +1,29 @@
+{
+  "quanLySinhVienApp": {
+    "ketQuaHocTap": {
+      "home": {
+        "title": "Ket Qua Hoc Taps",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Ket Qua Hoc Tap",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Ket Qua Hoc Tap",
+        "notFound": "No Ket Qua Hoc Taps found"
+      },
+      "created": "Một Ket Qua Hoc Tap mới được tạo với định danh {{ param }}",
+      "updated": "Một Ket Qua Hoc Tap cập nhật với định danh {{ param }}",
+      "deleted": "Một Ket Qua Hoc Tap đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Ket Qua Hoc Tap {{ id }}?"
+      },
+      "detail": {
+        "title": "Ket Qua Hoc Tap"
+      },
+      "id": "ID",
+      "diemQuaTrinh": "Diem Qua Trinh",
+      "diemThanhPhan": "Diem Thanh Phan",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "sinhVien": "Sinh Vien",
+      "monHoc": "Mon Hoc"
+    }
+  }
+}

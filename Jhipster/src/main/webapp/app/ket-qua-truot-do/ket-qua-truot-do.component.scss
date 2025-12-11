@@ -1,0 +1,57 @@
+.result-container {
+  margin-top: 30px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+h3 {
+  color: #333;
+  border-left: 5px solid #2196F3; /* Màu xanh dương khác với bảng điểm trước */
+  padding-left: 10px;
+  margin-bottom: 15px;
+}
+
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.result-table th, .result-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.result-table th {
+  background-color: #f1f8ff; /* Màu nền header nhẹ */
+  text-align: left;
+}
+
+.text-center { text-align: center; }
+.font-bold { font-weight: bold; }
+
+/* Style cho trạng thái */
+.badge-pass {
+  background-color: #e8f5e9;
+  color: #2e7d32; /* Màu xanh lá đậm */
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-weight: bold;
+  font-size: 12px;
+  border: 1px solid #c8e6c9;
+}
+
+.badge-fail {
+  background-color: #ffebee;
+  color: #c62828; /* Màu đỏ đậm */
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-weight: bold;
+  font-size: 12px;
+  border: 1px solid #ffcdd2;
+}
+
+.no-data {
+  margin-top: 15px;
+  color: #777;
+  font-style: italic;
+}

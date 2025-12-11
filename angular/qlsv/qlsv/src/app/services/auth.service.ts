@@ -1,9 +1,9 @@
+import { jwtDecode } from 'jwt-decode';
 import { Injectable, Inject, PLATFORM_ID } from '@angular/core'; // 1. Import thêm Inject và PLATFORM_ID
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { isPlatformBrowser } from '@angular/common'; // 2. Import isPlatformBrowser
-
 @Injectable({
   providedIn: 'root'
 })
@@ -21,13 +21,13 @@ export class AuthService {
   }
 
   login(credentials: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/authenticate`, credentials).pipe(
-      tap((response: any) => {
+    return this.http.post(`${this.apiUrl}/authenticate`, credentials)
+      .pipe(tap((response: any) => {
         if (response && response.token) {
           this.setToken(response.token);
         }
       })
-    );
+      );
   }
 
   // --- CÁC HÀM DƯỚI ĐÂY CẦN SỬA ---
@@ -56,8 +56,35 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     if (isPlatformBrowser(this.platformId)) {
-      return !!this.getToken();
+      const token = this.getToken();
+      if (!token) return false;
+
+      // Nếu có token nhưng đã hết hạn -> Xóa luôn và trả về false
+      if (this.isTokenExpired(token)) {
+        this.logout();
+        return false;
+      }
+
+      return true;
     }
     return false;
   }
+
+  isTokenExpired(token: string): boolean {
+    try {
+      const decoded: any = jwtDecode(token);
+      // decoded.exp là thời gian hết hạn (tính bằng giây)
+      // Date.now() tính bằng mili-giây nên phải chia 1000
+      if (!decoded.exp) return false; // Token không có hạn -> coi như không hết hạn
+
+      const currentTime = Date.now() / 1000;
+      return decoded.exp < currentTime;
+    } catch (error) {
+      return true; // Token lỗi -> coi như hết hạn
+    }
+  }
+
+
+
+
 }

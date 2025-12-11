@@ -1,0 +1,153 @@
+<div>
+  <h2 id="page-heading" data-cy="KetQuaHocTapHeading">
+    <span jhiTranslate="quanLySinhVienApp.ketQuaHocTap.home.title">Ket Qua Hoc Taps</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [animation]="isLoading ? 'spin' : undefined"></fa-icon>
+        <span jhiTranslate="quanLySinhVienApp.ketQuaHocTap.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-ket-qua-hoc-tap"
+        [routerLink]="['/ket-qua-hoc-tap/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="quanLySinhVienApp.ketQuaHocTap.home.createLabel">Thêm mới một Ket Qua Hoc Tap</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error />
+
+  <jhi-alert />
+
+  @if (ketQuaHocTaps().length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="quanLySinhVienApp.ketQuaHocTap.home.notFound">No Ket Qua Hoc Taps found</span>
+    </div>
+  } @else {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(sortState)]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="diemQuaTrinh">
+              <div class="d-flex">
+                <span jhiTranslate="quanLySinhVienApp.ketQuaHocTap.diemQuaTrinh">Diem Qua Trinh</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="diemThanhPhan">
+              <div class="d-flex">
+                <span jhiTranslate="quanLySinhVienApp.ketQuaHocTap.diemThanhPhan">Diem Thanh Phan</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="createdAt">
+              <div class="d-flex">
+                <span jhiTranslate="quanLySinhVienApp.ketQuaHocTap.createdAt">Created At</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="updatedAt">
+              <div class="d-flex">
+                <span jhiTranslate="quanLySinhVienApp.ketQuaHocTap.updatedAt">Updated At</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="sinhVien.tenSv">
+              <div class="d-flex">
+                <span jhiTranslate="quanLySinhVienApp.ketQuaHocTap.sinhVien">Sinh Vien</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="monHoc.tenMon">
+              <div class="d-flex">
+                <span jhiTranslate="quanLySinhVienApp.ketQuaHocTap.monHoc">Mon Hoc</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (ketQuaHocTap of ketQuaHocTaps(); track trackId(ketQuaHocTap)) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/ket-qua-hoc-tap', ketQuaHocTap.id, 'view']">{{ ketQuaHocTap.id }}</a>
+              </td>
+              <td>{{ ketQuaHocTap.diemQuaTrinh }}</td>
+              <td>{{ ketQuaHocTap.diemThanhPhan }}</td>
+              <td>{{ ketQuaHocTap.createdAt | formatMediumDatetime }}</td>
+              <td>{{ ketQuaHocTap.updatedAt | formatMediumDatetime }}</td>
+              <td>
+                @if (ketQuaHocTap.sinhVien) {
+                  <div>
+                    <a [routerLink]="['/sinh-vien', ketQuaHocTap.sinhVien.id, 'view']">{{ ketQuaHocTap.sinhVien.tenSv }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (ketQuaHocTap.monHoc) {
+                  <div>
+                    <a [routerLink]="['/mon-hoc', ketQuaHocTap.monHoc.id, 'view']">{{ ketQuaHocTap.monHoc.tenMon }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/ket-qua-hoc-tap', ketQuaHocTap.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Xem</span>
+                  </a>
+
+                  <a [routerLink]="['/ket-qua-hoc-tap', ketQuaHocTap.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Sửa</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(ketQuaHocTap)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Xóa</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (ketQuaHocTaps().length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page, totalItems, itemsPerPage }" />
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

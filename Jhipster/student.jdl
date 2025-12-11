@@ -1,0 +1,68 @@
+/* 1. Cấu hình chung cho dự án */
+application {
+  config {
+    baseName QuanLySinhVien,
+    applicationType monolith,
+    packageName com.example.quanlysinhvien,
+    authenticationType jwt,
+    prodDatabaseType mysql,
+    clientFramework angular,
+    buildTool maven,
+    serverPort 8080,
+    nativeLanguage vi
+  }
+  entities SinhVien, MonHoc, KetQuaHocTap
+}
+
+/* 2. Định nghĩa các Entity (Bảng) */
+
+// Bảng: sinh_vien
+entity SinhVien {
+    // JHipster tự tạo ID (Long), ta coi maSv là mã code sinh viên
+    tenSv String required maxlength(30),
+    gioiTinh String required maxlength(10), // Có thể đổi thành Enum nếu muốn
+    ngaySinh LocalDate,
+    lop String maxlength(30),
+    khoa String maxlength(30),
+    
+    // Audit fields (Tương ứng @CreationTimestamp)
+    createdAt Instant, 
+    updatedAt Instant
+}
+
+// Bảng: mon_hoc
+entity MonHoc {
+    tenMon String required unique maxlength(30),
+    tyLeDiemQuaTrinh Double required,
+    
+    // Audit fields
+    createdAt Instant,
+    updatedAt Instant
+}
+
+// Bảng: ket_qua_hoc_tap
+entity KetQuaHocTap {
+    diemQuaTrinh Double,
+    diemThanhPhan Double,
+    
+    // Audit fields
+    createdAt Instant,
+    updatedAt Instant
+}
+
+/* 3. Thiết lập mối quan hệ (Relationships) */
+
+relationship ManyToOne {
+    // Một Kết quả thuộc về Một Sinh viên
+    // Cấu trúc: EntityGoc{tenBienTrongJava(hienThi)} to EntityDich
+    KetQuaHocTap{sinhVien(tenSv) required} to SinhVien,
+
+    // Một Kết quả thuộc về Một Môn học
+    KetQuaHocTap{monHoc(tenMon) required} to MonHoc
+}
+
+/* 4. Cấu hình phụ trợ */
+// Phân trang cho tất cả bảng
+paginate SinhVien, MonHoc, KetQuaHocTap with pagination
+// Tạo Service class để viết logic sau này
+service all with serviceClass

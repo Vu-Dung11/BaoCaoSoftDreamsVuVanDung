@@ -1,0 +1,32 @@
+<div class="result-container" *ngIf="danhSachKetQua.length > 0">
+  <h3>Trạng thái Trượt/Đỗ</h3>
+
+  <table class="result-table">
+    <thead>
+      <tr>
+        <th>Môn học</th>
+        <th>Đ.Quá trình</th>
+        <th>Đ.Thành phần</th>
+        <th>Đ.Cuối kỳ</th>
+        <th>Trạng thái</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of danhSachKetQua">
+        <td>{{ item.tenMon }}</td>
+        <td class="text-center">{{ item.diemQuaTrinh }}</td>
+        <td class="text-center">{{ item.diemThanhPhan }}</td>
+        <td class="text-center font-bold">{{ item.diemCuoiKy }}</td>
+        <td class="text-center">
+          <span [class]="item.do ? 'badge-pass' : 'badge-fail'">
+            {{ item.do ? 'ĐỖ' : 'TRƯỢT' }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="danhSachKetQua.length === 0" class="no-data">
+  <p>Chưa có dữ liệu tổng kết môn học.</p>
+</div>

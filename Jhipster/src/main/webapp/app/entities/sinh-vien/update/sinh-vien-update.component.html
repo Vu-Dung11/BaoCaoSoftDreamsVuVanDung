@@ -1,0 +1,149 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-sinh-vien-heading" data-cy="SinhVienCreateUpdateHeading" jhiTranslate="quanLySinhVienApp.sinhVien.home.createOrEditLabel">
+        Thêm mới hoặc cập nhật Sinh Vien
+      </h2>
+
+      <div>
+        <jhi-alert-error />
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="quanLySinhVienApp.sinhVien.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        @let tenSvRef = editForm.get('tenSv')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_tenSv" jhiTranslate="quanLySinhVienApp.sinhVien.tenSv">Ten Sv</label>
+          <input type="text" class="form-control" name="tenSv" id="field_tenSv" data-cy="tenSv" formControlName="tenSv" />
+          @if (tenSvRef.invalid && (tenSvRef.dirty || tenSvRef.touched)) {
+            <div>
+              @if (editForm.get('tenSv')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">Trường này bắt buộc phải nhập.</small>
+              }
+              @if (editForm.get('tenSv')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '30' }"
+                  >Trường này không được vượt quá 30 ký tự.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let gioiTinhRef = editForm.get('gioiTinh')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_gioiTinh" jhiTranslate="quanLySinhVienApp.sinhVien.gioiTinh">Gioi Tinh</label>
+          <input type="text" class="form-control" name="gioiTinh" id="field_gioiTinh" data-cy="gioiTinh" formControlName="gioiTinh" />
+          @if (gioiTinhRef.invalid && (gioiTinhRef.dirty || gioiTinhRef.touched)) {
+            <div>
+              @if (editForm.get('gioiTinh')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">Trường này bắt buộc phải nhập.</small>
+              }
+              @if (editForm.get('gioiTinh')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '10' }"
+                  >Trường này không được vượt quá 10 ký tự.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_ngaySinh" jhiTranslate="quanLySinhVienApp.sinhVien.ngaySinh">Ngay Sinh</label>
+          <div class="input-group">
+            <input
+              id="field_ngaySinh"
+              data-cy="ngaySinh"
+              type="text"
+              class="form-control"
+              name="ngaySinh"
+              ngbDatepicker
+              #ngaySinhDp="ngbDatepicker"
+              formControlName="ngaySinh"
+            />
+            <button type="button" class="btn btn-secondary" (click)="ngaySinhDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        @let lopRef = editForm.get('lop')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_lop" jhiTranslate="quanLySinhVienApp.sinhVien.lop">Lop</label>
+          <input type="text" class="form-control" name="lop" id="field_lop" data-cy="lop" formControlName="lop" />
+          @if (lopRef.invalid && (lopRef.dirty || lopRef.touched)) {
+            <div>
+              @if (editForm.get('lop')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '30' }"
+                  >Trường này không được vượt quá 30 ký tự.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let khoaRef = editForm.get('khoa')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_khoa" jhiTranslate="quanLySinhVienApp.sinhVien.khoa">Khoa</label>
+          <input type="text" class="form-control" name="khoa" id="field_khoa" data-cy="khoa" formControlName="khoa" />
+          @if (khoaRef.invalid && (khoaRef.dirty || khoaRef.touched)) {
+            <div>
+              @if (editForm.get('khoa')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '30' }"
+                  >Trường này không được vượt quá 30 ký tự.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_createdAt" jhiTranslate="quanLySinhVienApp.sinhVien.createdAt">Created At</label>
+          <div class="d-flex">
+            <input
+              id="field_createdAt"
+              data-cy="createdAt"
+              type="datetime-local"
+              class="form-control"
+              name="createdAt"
+              formControlName="createdAt"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_updatedAt" jhiTranslate="quanLySinhVienApp.sinhVien.updatedAt">Updated At</label>
+          <div class="d-flex">
+            <input
+              id="field_updatedAt"
+              data-cy="updatedAt"
+              type="datetime-local"
+              class="form-control"
+              name="updatedAt"
+              formControlName="updatedAt"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Hủy</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Lưu</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

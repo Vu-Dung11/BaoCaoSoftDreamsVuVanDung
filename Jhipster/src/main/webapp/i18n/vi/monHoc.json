@@ -1,0 +1,27 @@
+{
+  "quanLySinhVienApp": {
+    "monHoc": {
+      "home": {
+        "title": "Mon Hocs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Mon Hoc",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Mon Hoc",
+        "notFound": "No Mon Hocs found"
+      },
+      "created": "Một Mon Hoc mới được tạo với định danh {{ param }}",
+      "updated": "Một Mon Hoc cập nhật với định danh {{ param }}",
+      "deleted": "Một Mon Hoc đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Mon Hoc {{ id }}?"
+      },
+      "detail": {
+        "title": "Mon Hoc"
+      },
+      "id": "ID",
+      "tenMon": "Ten Mon",
+      "tyLeDiemQuaTrinh": "Ty Le Diem Qua Trinh",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At"
+    }
+  }
+}

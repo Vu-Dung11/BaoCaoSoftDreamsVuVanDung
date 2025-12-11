@@ -1,0 +1,30 @@
+{
+  "quanLySinhVienApp": {
+    "sinhVien": {
+      "home": {
+        "title": "Sinh Viên",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Sinh Vien",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Sinh Vien",
+        "notFound": "No Sinh Viens found"
+      },
+      "created": "Một Sinh Vien mới được tạo với định danh {{ param }}",
+      "updated": "Một Sinh Vien cập nhật với định danh {{ param }}",
+      "deleted": "Một Sinh Vien đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Sinh Vien {{ id }}?"
+      },
+      "detail": {
+        "title": "Sinh Vien"
+      },
+      "id": "ID",
+      "tenSv": "Ten Sv",
+      "gioiTinh": "Gioi Tinh",
+      "ngaySinh": "Ngay Sinh",
+      "lop": "Lop",
+      "khoa": "Khoa",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At"
+    }
+  }
+}

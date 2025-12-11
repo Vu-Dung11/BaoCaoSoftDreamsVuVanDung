@@ -1,0 +1,64 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (ketQuaHocTap(); as ketQuaHocTapRef) {
+      <div>
+        <h2 data-cy="ketQuaHocTapDetailsHeading">
+          <span jhiTranslate="quanLySinhVienApp.ketQuaHocTap.detail.title">Ket Qua Hoc Tap</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ ketQuaHocTapRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="quanLySinhVienApp.ketQuaHocTap.diemQuaTrinh">Diem Qua Trinh</span></dt>
+          <dd>
+            <span>{{ ketQuaHocTapRef.diemQuaTrinh }}</span>
+          </dd>
+          <dt><span jhiTranslate="quanLySinhVienApp.ketQuaHocTap.diemThanhPhan">Diem Thanh Phan</span></dt>
+          <dd>
+            <span>{{ ketQuaHocTapRef.diemThanhPhan }}</span>
+          </dd>
+          <dt><span jhiTranslate="quanLySinhVienApp.ketQuaHocTap.createdAt">Created At</span></dt>
+          <dd>
+            <span>{{ ketQuaHocTapRef.createdAt | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="quanLySinhVienApp.ketQuaHocTap.updatedAt">Updated At</span></dt>
+          <dd>
+            <span>{{ ketQuaHocTapRef.updatedAt | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="quanLySinhVienApp.ketQuaHocTap.sinhVien">Sinh Vien</span></dt>
+          <dd>
+            @if (ketQuaHocTap()!.sinhVien) {
+              <div>
+                <a [routerLink]="['/sinh-vien', ketQuaHocTap()!.sinhVien?.id, 'view']">{{ ketQuaHocTapRef.sinhVien?.tenSv }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="quanLySinhVienApp.ketQuaHocTap.monHoc">Mon Hoc</span></dt>
+          <dd>
+            @if (ketQuaHocTap()!.monHoc) {
+              <div>
+                <a [routerLink]="['/mon-hoc', ketQuaHocTap()!.monHoc?.id, 'view']">{{ ketQuaHocTapRef.monHoc?.tenMon }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Quay lại</span>
+        </button>
+
+        <button type="button" [routerLink]="['/ket-qua-hoc-tap', ketQuaHocTapRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Sửa</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

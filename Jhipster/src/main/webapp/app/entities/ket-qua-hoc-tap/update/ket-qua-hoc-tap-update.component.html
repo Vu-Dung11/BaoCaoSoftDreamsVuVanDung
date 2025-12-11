@@ -1,0 +1,150 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-ket-qua-hoc-tap-heading"
+        data-cy="KetQuaHocTapCreateUpdateHeading"
+        jhiTranslate="quanLySinhVienApp.ketQuaHocTap.home.createOrEditLabel"
+      >
+        Thêm mới hoặc cập nhật Ket Qua Hoc Tap
+      </h2>
+
+      <div>
+        <jhi-alert-error />
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="quanLySinhVienApp.ketQuaHocTap.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_diemQuaTrinh" jhiTranslate="quanLySinhVienApp.ketQuaHocTap.diemQuaTrinh"
+            >Diem Qua Trinh</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="diemQuaTrinh"
+            id="field_diemQuaTrinh"
+            data-cy="diemQuaTrinh"
+            formControlName="diemQuaTrinh"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_diemThanhPhan" jhiTranslate="quanLySinhVienApp.ketQuaHocTap.diemThanhPhan"
+            >Diem Thanh Phan</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="diemThanhPhan"
+            id="field_diemThanhPhan"
+            data-cy="diemThanhPhan"
+            formControlName="diemThanhPhan"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_createdAt" jhiTranslate="quanLySinhVienApp.ketQuaHocTap.createdAt">Created At</label>
+          <div class="d-flex">
+            <input
+              id="field_createdAt"
+              data-cy="createdAt"
+              type="datetime-local"
+              class="form-control"
+              name="createdAt"
+              formControlName="createdAt"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_updatedAt" jhiTranslate="quanLySinhVienApp.ketQuaHocTap.updatedAt">Updated At</label>
+          <div class="d-flex">
+            <input
+              id="field_updatedAt"
+              data-cy="updatedAt"
+              type="datetime-local"
+              class="form-control"
+              name="updatedAt"
+              formControlName="updatedAt"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_sinhVien" jhiTranslate="quanLySinhVienApp.ketQuaHocTap.sinhVien">Sinh Vien</label>
+          <select
+            class="form-control"
+            id="field_sinhVien"
+            data-cy="sinhVien"
+            name="sinhVien"
+            formControlName="sinhVien"
+            [compareWith]="compareSinhVien"
+          >
+            @if (!editForm.get('sinhVien')!.value) {
+              <option [ngValue]="null" selected></option>
+            }
+            @for (sinhVienOption of sinhViensSharedCollection; track $index) {
+              <option [ngValue]="sinhVienOption">{{ sinhVienOption.tenSv }}</option>
+            }
+          </select>
+        </div>
+        @if (editForm.get(['sinhVien'])!.invalid && (editForm.get(['sinhVien'])!.dirty || editForm.get(['sinhVien'])!.touched)) {
+          <div>
+            @if (editForm.get(['sinhVien'])?.errors?.required) {
+              <small class="form-text text-danger" jhiTranslate="entity.validation.required">Trường này bắt buộc phải nhập.</small>
+            }
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_monHoc" jhiTranslate="quanLySinhVienApp.ketQuaHocTap.monHoc">Mon Hoc</label>
+          <select
+            class="form-control"
+            id="field_monHoc"
+            data-cy="monHoc"
+            name="monHoc"
+            formControlName="monHoc"
+            [compareWith]="compareMonHoc"
+          >
+            @if (!editForm.get('monHoc')!.value) {
+              <option [ngValue]="null" selected></option>
+            }
+            @for (monHocOption of monHocsSharedCollection; track $index) {
+              <option [ngValue]="monHocOption">{{ monHocOption.tenMon }}</option>
+            }
+          </select>
+        </div>
+        @if (editForm.get(['monHoc'])!.invalid && (editForm.get(['monHoc'])!.dirty || editForm.get(['monHoc'])!.touched)) {
+          <div>
+            @if (editForm.get(['monHoc'])?.errors?.required) {
+              <small class="form-text text-danger" jhiTranslate="entity.validation.required">Trường này bắt buộc phải nhập.</small>
+            }
+          </div>
+        }
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Hủy</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Lưu</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

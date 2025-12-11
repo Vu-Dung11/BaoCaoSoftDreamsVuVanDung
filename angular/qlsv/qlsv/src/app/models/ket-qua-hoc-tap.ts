@@ -5,11 +5,9 @@ export interface KetQuaHocTap {
   sinhVienTen: string;
   monHocTen: string;
 
-  // --- THÊM 2 DÒNG NÀY ---
   sinhVienId: number;
   monHocId: number;
 
-  // Các trường phụ (có thể có hoặc không)
   createdAt?: string;
   updatedAt?: string;
 }

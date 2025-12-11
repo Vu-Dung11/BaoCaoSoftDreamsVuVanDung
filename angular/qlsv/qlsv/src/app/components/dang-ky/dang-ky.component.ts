@@ -23,8 +23,8 @@ export class DangKyComponent {
     const userData = {
       email: this.email,
       password: this.password,
-      firstName: this.firstname,
-      lastName: this.lastname
+      firstname: this.firstname,
+      lastname: this.lastname
     };
     this.authenService.register(userData).subscribe({
       next: (res) => {

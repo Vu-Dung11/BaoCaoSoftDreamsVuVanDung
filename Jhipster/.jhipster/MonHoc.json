@@ -1,0 +1,32 @@
+{
+  "annotations": {
+    "changelogDate": "20251210070844"
+  },
+  "applications": ["QuanLySinhVien"],
+  "fields": [
+    {
+      "fieldName": "tenMon",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique", "maxlength"],
+      "fieldValidateRulesMaxlength": "30"
+    },
+    {
+      "fieldName": "tyLeDiemQuaTrinh",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "MonHoc",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}
